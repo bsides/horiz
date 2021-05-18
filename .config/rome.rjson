@@ -1,0 +1,8 @@
+// For configuration documentation see http://romefrontend.dev/#project-configuration
+name: "horiz-svelte"
+lint: {
+	globals: [
+		"App"
+]
+}
+root: true

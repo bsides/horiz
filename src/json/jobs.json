@@ -1,0 +1,323 @@
+[
+  {
+    "short": "alc",
+    "name": "Alchemist",
+    "full": "alchemist",
+    "role": "crafting",
+    "disciple": "dol"
+  },
+  {
+    "short": "acn",
+    "name": "Arcanist",
+    "full": "arcanist",
+    "role": "dps",
+    "disciple": "dow"
+  },
+  {
+    "short": "arc",
+    "name": "Archer",
+    "full": "archer",
+    "role": "dps",
+    "disciple": "dow"
+  },
+  {
+    "short": "arm",
+    "name": "Armorer",
+    "full": "armorer",
+    "role": "crafting",
+    "disciple": "dol"
+  },
+  {
+    "short": "ast",
+    "name": "Astrologian",
+    "full": "astrologian",
+    "role": "healer",
+    "disciple": "dow"
+  },
+  {
+    "short": "brd",
+    "name": "Bard",
+    "full": "bard",
+    "role": "dps",
+    "disciple": "dow"
+  },
+  {
+    "short": "blm",
+    "name": "Black Mage",
+    "full": "blackmage",
+    "role": "dps",
+    "disciple": "dow"
+  },
+  {
+    "short": "bsm",
+    "name": "Blacksmith",
+    "full": "blacksmith",
+    "role": "crafting",
+    "disciple": "dol"
+  },
+  {
+    "short": "blu",
+    "name": "Blue Mage",
+    "full": "bluemage",
+    "role": "special"
+  },
+  {
+    "short": "btn",
+    "name": "Botanist",
+    "full": "botanist",
+    "role": "gathering",
+    "disciple": "doh"
+  },
+  {
+    "short": "crp",
+    "name": "Carpenter",
+    "full": "carpenter",
+    "role": "crafting",
+    "disciple": "dol"
+  },
+  {
+    "short": "cnj",
+    "name": "Conjurer",
+    "full": "conjurer",
+    "role": "healer",
+    "disciple": "dow"
+  },
+  {
+    "short": "cul",
+    "name": "Culinarian",
+    "full": "culinarian",
+    "role": "crafting",
+    "disciple": "dol"
+  },
+  {
+    "short": "dnc",
+    "name": "Dancer",
+    "full": "dancer",
+    "role": "dps",
+    "disciple": "dow"
+  },
+  {
+    "short": "darkknight",
+    "name": "Dark Knight",
+    "full": "darkknight",
+    "role": "tank",
+    "disciple": "dow"
+  },
+  {
+    "short": "drg",
+    "name": "Dragoon",
+    "full": "dragoon",
+    "role": "dps",
+    "disciple": "dow"
+  },
+  {
+    "short": "fsh",
+    "name": "Fisher",
+    "full": "fisher",
+    "role": "gathering",
+    "disciple": "doh"
+  },
+  {
+    "short": "gld",
+    "name": "Gladiator",
+    "full": "gladiator",
+    "role": "tank",
+    "disciple": "dow"
+  },
+  {
+    "short": "goldsmith",
+    "name": "Goldsmith",
+    "full": "goldsmith",
+    "role": "crafting",
+    "disciple": "dol"
+  },
+  {
+    "short": "gnb",
+    "name": "Gunbreaker",
+    "full": "gunbreaker",
+    "role": "tank",
+    "disciple": "dow"
+  },
+  {
+    "short": "lnc",
+    "name": "Lancer",
+    "full": "lancer",
+    "role": "dps",
+    "disciple": "dow"
+  },
+  {
+    "short": "ltw",
+    "name": "Leatherworker",
+    "full": "leatherworker",
+    "role": "crafting",
+    "disciple": "dol"
+  },
+  {
+    "short": "mch",
+    "name": "Machinist",
+    "full": "machinist",
+    "role": "dps",
+    "disciple": "dow"
+  },
+  {
+    "short": "mrd",
+    "name": "Marauder",
+    "full": "marauder",
+    "role": "tank",
+    "disciple": "dow"
+  },
+  {
+    "short": "min",
+    "name": "Miner",
+    "full": "miner",
+    "role": "gathering",
+    "disciple": "doh"
+  },
+  {
+    "short": "mnk",
+    "name": "Monk",
+    "full": "monk",
+    "role": "dps",
+    "disciple": "dow"
+  },
+  {
+    "short": "nin",
+    "name": "Ninja",
+    "full": "ninja",
+    "role": "dps",
+    "disciple": "dow"
+  },
+  {
+    "short": "pld",
+    "name": "Paladin",
+    "full": "paladin",
+    "role": "tank",
+    "disciple": "dow"
+  },
+  {
+    "short": "pug",
+    "name": "Pugilist",
+    "full": "pugilist",
+    "role": "dps",
+    "disciple": "dow"
+  },
+  {
+    "short": "rdm",
+    "name": "Red Mage",
+    "full": "redmage",
+    "role": "dps",
+    "disciple": "dow"
+  },
+  {
+    "short": "rog",
+    "name": "Rogue",
+    "full": "rogue",
+    "role": "dps",
+    "disciple": "dow"
+  },
+  {
+    "short": "sam",
+    "name": "Samurai",
+    "full": "samurai",
+    "role": "dps",
+    "disciple": "dow"
+  },
+  {
+    "short": "sch",
+    "name": "Scholar",
+    "full": "scholar",
+    "role": "healer",
+    "disciple": "dow"
+  },
+  {
+    "short": "sum",
+    "name": "Summoner",
+    "full": "summoner",
+    "role": "dps",
+    "disciple": "dow"
+  },
+  {
+    "short": "thm",
+    "name": "Thaumaturge",
+    "full": "thaumaturge",
+    "role": "dps",
+    "disciple": "dow"
+  },
+  {
+    "short": "war",
+    "name": "Warrior",
+    "full": "warrior",
+    "role": "tank",
+    "disciple": "dow"
+  },
+  {
+    "short": "wvr",
+    "name": "Weaver",
+    "full": "weaver",
+    "role": "crafting",
+    "disciple": "dol"
+  },
+  {
+    "short": "whm",
+    "name": "White Mage",
+    "full": "whitemage",
+    "role": "healer",
+    "disciple": "dow"
+  },
+  {
+    "short": "sag",
+    "name": "Sage",
+    "full": "sage",
+    "role": "healer",
+    "disciple": "dow"
+  },
+  {
+    "short": "rea",
+    "name": "Reaper",
+    "full": "reaper",
+    "role": "dps",
+    "disciple": "dow"
+  },
+  {
+    "short": "cho",
+    "name": "Chocobo",
+    "full": "chocobo",
+    "role": "pet"
+  },
+  {
+    "short": "grd",
+    "name": "Garuda",
+    "full": "garuda",
+    "role": "pet"
+  },
+  {
+    "short": "car",
+    "name": "Carbuncle",
+    "full": "carbuncle",
+    "role": "pet"
+  },
+  {
+    "short": "eos",
+    "name": "Eos",
+    "full": "eos",
+    "role": "pet"
+  },
+  {
+    "short": "ifr",
+    "name": "Ifrit",
+    "full": "ifrit",
+    "role": "pet"
+  },
+  {
+    "short": "rok",
+    "name": "Rook",
+    "full": "rook",
+    "role": "pet"
+  },
+  {
+    "short": "sel",
+    "name": "Selene",
+    "full": "selene",
+    "role": "pet"
+  }
+]
