@@ -1,7 +1,16 @@
 {
-  "name": "svelte-app",
+  "name": "horiz",
   "version": "1.0.0",
   "private": true,
+  "author": {
+    "name": "Rafael <BSIDES> Pereira",
+    "email": "rafaelbsides at gmail",
+    "url": "https://github.com/bsides"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/bsides/horiz.git"
+  },
   "scripts": {
     "build": "rollup -c",
     "dev": "rollup -c -w",
@@ -14,20 +23,28 @@
     "@rollup/plugin-node-resolve": "^11.0.0",
     "@rollup/plugin-typescript": "^8.0.0",
     "@tsconfig/svelte": "^1.0.0",
+    "node-sass": "^6.0.0",
     "rollup": "^2.3.4",
     "rollup-plugin-css-only": "^3.1.0",
     "rollup-plugin-livereload": "^2.0.0",
     "rollup-plugin-svelte": "^7.0.0",
     "rollup-plugin-terser": "^7.0.0",
+    "sirv-cli": "^1.0.0",
     "svelte": "^3.0.0",
     "svelte-check": "^1.0.0",
+    "svelte-i18n": "^3.3.9",
     "svelte-preprocess": "^4.0.0",
     "tslib": "^2.0.0",
     "typescript": "^4.0.0"
   },
-  "dependencies": {
-    "node-sass": "^6.0.0",
-    "sirv-cli": "^1.0.0",
-    "svelte-i18n": "^3.3.9"
-  }
+  "funding": {
+    "type": "patreon",
+    "url": "https://patreon.com/bsides"
+  },
+  "homepage": "https://github.com/bsides/horiz#readme",
+  "bugs": {
+    "url": "https://github.com/bsides/horiz/issues"
+  },
+  "license": "MIT License",
+  "description": "A simple horizontal damage meter overlay for Final Fantasy XIV. It supports English, Portuguese, Chinese (S/T) and French. It's intended to be the new version of HORIZOVERLAY."
 }

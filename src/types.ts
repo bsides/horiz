@@ -1,11 +1,52 @@
-export type GenericObject = { [key: string]: any }
-export type GenericFunction = (data: GenericObject) => void
+export type GenericObjectType = { [key: string]: any }
+export type GenericCallbackType = (arg?: any) => void
+export type GenericFunctionType = (data: GenericObjectType) => void
 
 export type NewWindow = Window &
   typeof globalThis & {
-    addOverlayListener: (context: string, fn: GenericFunction) => void
+    addOverlayListener: (context: string, fn: GenericFunctionType) => void
     startOverlayEvents: () => void
   }
+
+export type CombatWindowType = Window &
+  typeof globalThis & {
+    addOverlayListener: (
+      context: 'CombatData',
+      fn: (data: CombatDataType) => void
+    ) => void
+    startOverlayEvents: () => void
+    data: CombatDataType[] | unknown[]
+  }
+
+type OverlayPluginApiType = {
+  broadcastMessage: (msg: string) => void
+  sendMessage: (target: string, msg: string) => void
+  overlayMessage: (target: string, msg: string) => void
+  endEncounter: () => void
+  makeScreenshot: () => void
+  setAcceptFocus: (accept: boolean) => void
+  callHandler: (data: string, callback: GenericObjectType) => void
+  ready?: boolean
+}
+
+export type OverlayWindowType = Window &
+  typeof globalThis & {
+    dispatchOverlayEvent: (
+      msg: CombatDataType | MessageEventOverlayType<CombatDataType>
+    ) => void
+    addOverlayListener: (event: string, cb: GenericCallbackType) => void
+    removeOverlayListener: (event: string, cb: GenericCallbackType) => void
+    callOverlayHandler: (
+      msg: CombatDataType | MessageEventOverlayType<CombatDataType>
+    ) => void
+    startOverlayEvents: () => void
+    OverlayPluginApi: OverlayPluginApiType
+    __OverlayCallback: any
+  }
+
+export interface MessageEventOverlayType<T = any> extends MessageEvent {
+  rseq?: number | null
+}
 
 export type LocaleType = {
   initial: {
@@ -63,16 +104,6 @@ export type LocaleType = {
     instructions: string
   }
 }
-
-export type CombatWindow = Window &
-  typeof globalThis & {
-    addOverlayListener: (
-      context: 'CombatData',
-      fn: (data: CombatDataType) => void
-    ) => void
-    startOverlayEvents: () => void
-    data: CombatDataType[] | unknown[]
-  }
 
 export type EncounterType = {
   CurrentZoneName: string

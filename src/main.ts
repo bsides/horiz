@@ -1,4 +1,7 @@
 import App from './App.svelte'
+import OverlayWrapper from './OverlayWrapper'
+
+new OverlayWrapper()
 
 const app = new App({
   target: document.body,

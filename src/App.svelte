@@ -1,15 +1,14 @@
 <script lang="ts">
   import Encounter from './components/Encounter.svelte'
   import Battler from './components/Battler.svelte'
-  import type { CombatantType, CombatDataType, CombatWindow } from './types'
-  import './common'
+  import type { CombatantType, CombatDataType, CombatWindowType } from './types'
+  // import './common'
 
-  export let dps: string
   export let fullData: CombatDataType
   export let encounter = fullData?.Encounter
   export let battler: CombatantType[] = []
 
-  const newWindow: CombatWindow = window as CombatWindow
+  const newWindow: CombatWindowType = window as CombatWindowType
   newWindow.data = []
   if (newWindow !== undefined) {
     newWindow.addOverlayListener('CombatData', (data) => {
