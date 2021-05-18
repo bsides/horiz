@@ -1,105 +1,72 @@
-*Looking for a shareable component template? Go here --> [sveltejs/component-template](https://github.com/sveltejs/component-template)*
+# H O R I Z
 
----
+A simple horizontal damage meter overlay for Final Fantasy XIV. It supports
+English, Portuguese, Chinese (S/T) and French. It's intended to be the new
+version of HORIZOVERLAY.
 
-# svelte app
+## Quick Run
 
-This is a project template for [Svelte](https://svelte.dev) apps. It lives at https://github.com/sveltejs/template.
+- Latest version of ACT
+- Latest version of FFXIV Parsing Plugin
+- Latest version of ngld's Overlay Plugin
+- URL to put in ngld's Overlay Plugin: `https://bsides.github.io/horiz`
 
-To create a new project based on this template using [degit](https://github.com/Rich-Harris/degit):
+## Verbose and more explained run
 
-```bash
-npx degit sveltejs/template svelte-app
-cd svelte-app
-```
+- Latest version of [ACT](https://advancedcombattracker.com/):
+  [link to download](https://advancedcombattracker.com/download.php). You will
+  probably need to make it through your Windows Firewall and execute as admin.
+  More details below.
+- Open ACT and install FFXIV Parsing Plugin, either via its config or by
+  [downloading in ACT page](https://advancedcombattracker.com/download.php).
+  Please check out [this setup guide](https://github.com/FFXIV-ACT/setup-guide)
+  if you need any help with this.
+- Install the latest version of
+  [Overlay Plugin by ngld](https://github.com/ngld/OverlayPlugin), either via
+  ACT's windows or by
+  [manually downloading](https://github.com/ngld/OverlayPlugin/releases)
+  and installing.
 
-*Note that you will need to have [Node.js](https://nodejs.org) installed.*
+### Install
 
+_Please be sure that everything from the section above are fulfilled!_
 
-## Get started
+1. Install the overlay by going to ACT's Plugins tab, then OverlayPlugin.dll's
+   tab and then clicking "New" button below.
+2. You should see a new window named Create new overlay. In the name field, put
+   Horiz (could be anything). In the Preset, select Custom.
+3. It will make a new entry in the list. Click on Horiz (or whatever is the
+   name you gave) and fill in the URL: `https://bsides.github.io/horiz`
+4. Don't forget to check if the options "Show overlay" and "Enable overlay" are
+   on.
+5. You could also check to "Enable clickthrough" and "Lock overlay" once you're
+   happy positioning the overlay in the screen.
 
-Install the dependencies...
+Done! It's really easy 😎
 
-```bash
-cd svelte-app
-npm install
-```
+## Contributing
 
-...then start [Rollup](https://rollupjs.org):
+Please open an issue with whatever it is that you want to contribute. This
+project is open to add features or fix whatever bugs.
 
-```bash
-npm run dev
-```
+## Use & Disclaimer
 
-Navigate to [localhost:5000](http://localhost:5000). You should see your app running. Edit a component file in `src`, save it, and reload the page to see your changes.
+This project was made using [Svelte](https://svelte.dev/). Although it's not
+the most used framework, I decided to use it because I wanted to learn something
+new and it's pretty fast. The browser has evolved so much it just makes sense.
 
-By default, the server will only respond to requests from localhost. To allow connections from other computers, edit the `sirv` commands in package.json to include the option `--host 0.0.0.0`.
+Don't be intimidated by the code, if you know frontend web development,
+I'm sure you can read it.
 
-If you're using [Visual Studio Code](https://code.visualstudio.com/) we recommend installing the official extension [Svelte for VS Code](https://marketplace.visualstudio.com/items?itemName=svelte.svelte-vscode). If you are using other editors you may need to install a plugin in order to get syntax highlighting and intellisense.
+## Credits
 
-## Building and running in production mode
+- To my other overlay where started it all,
+  [H O R I Z O V E R L A Y](https://github.com/bsides/horizoverlay)
+- To the whole community, really, you guys are awesome. You opened issues,
+  helped with PRs and gave me a reason to start this version.
 
-To create an optimised version of the app:
+### Localization
 
-```bash
-npm run build
-```
-
-You can run the newly built app with `npm run start`. This uses [sirv](https://github.com/lukeed/sirv), which is included in your package.json's `dependencies` so that the app will work when you deploy to platforms like [Heroku](https://heroku.com).
-
-
-## Single-page app mode
-
-By default, sirv will only respond to requests that match files in `public`. This is to maximise compatibility with static fileservers, allowing you to deploy your app anywhere.
-
-If you're building a single-page app (SPA) with multiple routes, sirv needs to be able to respond to requests for *any* path. You can make it so by editing the `"start"` command in package.json:
-
-```js
-"start": "sirv public --single"
-```
-
-## Using TypeScript
-
-This template comes with a script to set up a TypeScript development environment, you can run it immediately after cloning the template with:
-
-```bash
-node scripts/setupTypeScript.js
-```
-
-Or remove the script via:
-
-```bash
-rm scripts/setupTypeScript.js
-```
-
-## Deploying to the web
-
-### With [Vercel](https://vercel.com)
-
-Install `vercel` if you haven't already:
-
-```bash
-npm install -g vercel
-```
-
-Then, from within your project folder:
-
-```bash
-cd public
-vercel deploy --name my-project
-```
-
-### With [surge](https://surge.sh/)
-
-Install `surge` if you haven't already:
-
-```bash
-npm install -g surge
-```
-
-Then, from within your project folder:
-
-```bash
-npm run build
-surge public my-project.surge.sh
-```
+- [@bsides](https://github.com/bsides): English, Spanish, Portuguese (Brazilian)
+- [@yorushika](https://github.com/yorushika): Simplified / Traditional Chinese
+- [@moondark](https://github.com/mooondark): French
