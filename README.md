@@ -49,6 +49,8 @@ Done! It's really easy 😎
 Please open an issue with whatever it is that you want to contribute. This
 project is open to add features or fix whatever bugs.
 
+We do use and enforce the use of [Prettier](https://prettier.io/).
+
 ## Use & Disclaimer
 
 This project was made using [Svelte](https://svelte.dev/). Although it's not
