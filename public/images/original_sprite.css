@@ -1,0 +1,160 @@
+.jobicon {
+  background-image: url(spritesheet.png);
+  background-repeat: no-repeat;
+  display: block;
+  width: 32px;
+  height: 32px;
+}
+.jobicon-acn {
+  background-position: -1px -1px;
+}
+.jobicon-alc {
+  background-position: -35px -1px;
+}
+.jobicon-arc {
+  background-position: -69px -1px;
+}
+.jobicon-arm {
+  background-position: -103px -1px;
+}
+.jobicon-ast {
+  background-position: -137px -1px;
+}
+.jobicon-bishop {
+  background-position: -171px -1px;
+}
+.jobicon-blm {
+  background-position: -205px -1px;
+}
+.jobicon-blu {
+  background-position: -1px -35px;
+}
+.jobicon-brd {
+  background-position: -35px -35px;
+}
+.jobicon-bsm {
+  background-position: -69px -35px;
+}
+.jobicon-btn {
+  background-position: -103px -35px;
+}
+.jobicon-carbuncle {
+  background-position: -137px -35px;
+}
+.jobicon-chocobo {
+  background-position: -171px -35px;
+}
+.jobicon-cnj {
+  background-position: -205px -35px;
+}
+.jobicon-crp {
+  background-position: -1px -69px;
+}
+.jobicon-cul {
+  background-position: -35px -69px;
+}
+.jobicon-dnc {
+  background-position: -69px -69px;
+}
+.jobicon-drg {
+  background-position: -103px -69px;
+}
+.jobicon-drk {
+  background-position: -137px -69px;
+}
+.jobicon-empty {
+  background-position: -171px -69px;
+}
+.jobicon-eos {
+  background-position: -205px -69px;
+}
+.jobicon-error {
+  background-position: -1px -103px;
+}
+.jobicon-fsh {
+  background-position: -35px -103px;
+}
+.jobicon-garuda {
+  background-position: -69px -103px;
+}
+.jobicon-gla {
+  background-position: -103px -103px;
+}
+.jobicon-gnb {
+  background-position: -137px -103px;
+}
+.jobicon-gsm {
+  background-position: -171px -103px;
+}
+.jobicon-ifrit {
+  background-position: -205px -103px;
+}
+.jobicon-lb {
+  background-position: -1px -137px;
+}
+.jobicon-lnc {
+  background-position: -35px -137px;
+}
+.jobicon-ltw {
+  background-position: -69px -137px;
+}
+.jobicon-mch {
+  background-position: -103px -137px;
+}
+.jobicon-min {
+  background-position: -137px -137px;
+}
+.jobicon-mnk {
+  background-position: -171px -137px;
+}
+.jobicon-mrd {
+  background-position: -205px -137px;
+}
+.jobicon-nin {
+  background-position: -1px -171px;
+}
+.jobicon-pgl {
+  background-position: -35px -171px;
+}
+.jobicon-pld {
+  background-position: -69px -171px;
+}
+.jobicon-pug {
+  background-position: -103px -171px;
+}
+.jobicon-rdm {
+  background-position: -137px -171px;
+}
+.jobicon-rog {
+  background-position: -171px -171px;
+}
+.jobicon-rook {
+  background-position: -205px -171px;
+}
+.jobicon-sam {
+  background-position: -1px -205px;
+}
+.jobicon-sch {
+  background-position: -35px -205px;
+}
+.jobicon-selene {
+  background-position: -69px -205px;
+}
+.jobicon-smn {
+  background-position: -103px -205px;
+}
+.jobicon-thm {
+  background-position: -137px -205px;
+}
+.jobicon-titan {
+  background-position: -171px -205px;
+}
+.jobicon-war {
+  background-position: -205px -205px;
+}
+.jobicon-whm {
+  background-position: -239px -1px;
+}
+.jobicon-wvr {
+  background-position: -239px -35px;
+}

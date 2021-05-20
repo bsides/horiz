@@ -10,10 +10,7 @@ export type NewWindow = Window &
 
 export type CombatWindowType = Window &
   typeof globalThis & {
-    addOverlayListener: (
-      context: 'CombatData',
-      fn: (data: CombatDataType) => void
-    ) => void
+    addOverlayListener: (context: 'CombatData', fn: (data: CombatDataType) => void) => void
     startOverlayEvents: () => void
     data: CombatDataType[] | unknown[]
   }
@@ -31,14 +28,10 @@ type OverlayPluginApiType = {
 
 export type OverlayWindowType = Window &
   typeof globalThis & {
-    dispatchOverlayEvent: (
-      msg: CombatDataType | MessageEventOverlayType<CombatDataType>
-    ) => void
+    dispatchOverlayEvent: (msg: CombatDataType | MessageEventOverlayType<CombatDataType>) => void
     addOverlayListener: (event: string, cb: GenericCallbackType) => void
     removeOverlayListener: (event: string, cb: GenericCallbackType) => void
-    callOverlayHandler: (
-      msg: CombatDataType | MessageEventOverlayType<CombatDataType>
-    ) => void
+    callOverlayHandler: (msg: CombatDataType | MessageEventOverlayType<CombatDataType>) => void
     startOverlayEvents: () => void
     OverlayPluginApi: OverlayPluginApiType
     __OverlayCallback: any
@@ -273,4 +266,79 @@ export type CombatDataType = {
   }
   isActive: boolean
   type: 'CombatData'
+}
+
+type DiscipleType = 'dow' | 'dol' | 'doh'
+type RoleType = 'tank' | 'healer' | 'dps' | 'crafting' | 'gathering' | 'special' | 'pet'
+type ShortCraftingRoleType = 'alc' | 'arm' | 'bsm' | 'crp' | 'cul' | 'gsm' | 'ltw' | 'wvr'
+type ShortGatheringRoleType = 'bot' | 'fsh' | 'min'
+type ShortTankRoleType = 'drk' | 'gla' | 'mrd' | 'pld' | 'war' | 'titan' | 'gnb'
+type ShortHealerRoleType = 'ast' | 'cnj' | 'sag' | 'sch' | 'whm' | 'eos' | 'selene'
+type ShortDpsRoleType =
+  | 'acn'
+  | 'arc'
+  | 'blm'
+  | 'brd'
+  | 'dnc'
+  | 'drg'
+  | 'lnc'
+  | 'mch'
+  | 'mnk'
+  | 'nin'
+  | 'pgl'
+  | 'pug'
+  | 'rea'
+  | 'rdm'
+  | 'rog'
+  | 'sam'
+  | 'smn'
+  | 'thm'
+  | 'carbuncle'
+  | 'garuda'
+  | 'ifrit'
+  | 'rook'
+  | 'bishop'
+  | 'chocobo'
+  | 'lb'
+
+export type JobsType = {
+  full: string
+  name: string
+  role: RoleType
+  short?:
+    | ShortTankRoleType
+    | ShortHealerRoleType
+    | ShortDpsRoleType
+    | ShortCraftingRoleType
+    | ShortGatheringRoleType
+  disciple?: DiscipleType
+}
+
+export type ConfigType = {
+  showSetup?: boolean
+  color?: string
+  characterName?: string
+  showRank?: boolean
+  showJobIcon?: boolean
+  showHps?: boolean
+  showHighlight?: boolean
+  showSelf?: boolean
+  showMaxhit?: boolean
+  showDuration?: boolean
+  showTotalDps?: boolean
+  showDamagePercent?: boolean
+  showDiscord?: boolean
+  showLocale?: boolean
+  showJobless?: boolean
+  zoom?: string
+  discord?: string
+  maxCombatants?: number
+  locale?: string
+  configWindow?: {
+    width?: number
+    height?: number
+  }
+  colorHealer?: string
+  colorTank?: string
+  colorDps?: string
 }
