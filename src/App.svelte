@@ -1,26 +1,25 @@
 <script lang="ts">
-  import { get } from 'svelte/store'
-  import jsonPreview from './json/preview.json'
-  import { configStore } from './stores'
-  import Config from './components/Config.svelte'
-  import Encounter from './components/Encounter.svelte'
-  import Battler from './components/Battler.svelte'
-  import type { CombatantType, CombatDataType, CombatWindowType } from './types'
-  import { getNewRandom } from './helper'
-  // import './common'
+  import jsonPreview from '$/json/preview.json'
+  import { configStore } from '$/utils/stores'
+  import Config from '$/components/Config.svelte'
+  import Encounter from '$/components/Encounter.svelte'
+  import Battler from '$/components/Battler.svelte'
+  import Original from '$/themes/Original.svelte'
+  import type { CombatantType, CombatDataType, CombatWindowType } from '$/utils/types'
+  import { getNewRandom } from '$/utils/helper'
 
   let fullData: CombatDataType
   let encounter = fullData?.Encounter
-  let battler: CombatantType[] = []
+  let combatants: CombatantType[] = []
 
   const newWindow: CombatWindowType = window as CombatWindowType
-  newWindow.data = []
+  newWindow.data = {}
   // if (newWindow !== undefined) {
   //   newWindow.addOverlayListener('CombatData', (data) => {
   //     const { Combatant } = data
   //     fullData = data
-  //     battler = Object.keys(Combatant).map((key) => Combatant[key])
-  //     console.log(battler)
+  //     combatants = Object.keys(Combatant).map((key) => Combatant[key])
+  //     console.log(combatants)
   //   })
   //   newWindow.startOverlayEvents()
   // }
@@ -31,7 +30,7 @@
   }
   let preview = jsonPreview
 
-  let clear
+  let clear: number
   $: {
     clearInterval(clear)
     clear = setInterval(() => {
@@ -43,14 +42,17 @@
     }, 1000)
     newWindow.data = preview
     fullData = preview
-    battler = Object.keys(preview.Combatant).map((key) => preview.Combatant[key])
+    combatants = Object.keys(preview.Combatant).map((key) => preview.Combatant[key])
     encounter = preview.Encounter
   }
 </script>
 
 <main on:contextmenu={handleContextMenu}>
   <Encounter data={encounter} />
-  <Battler data={battler} />
+  {#if $configStore.theme === 'original'}
+    <Original data={combatants} />
+  {/if}
+  <Battler data={combatants} />
   {#if $configStore.showSetup}
     <Config />
   {/if}

@@ -12,7 +12,7 @@ export type CombatWindowType = Window &
   typeof globalThis & {
     addOverlayListener: (context: 'CombatData', fn: (data: CombatDataType) => void) => void
     startOverlayEvents: () => void
-    data: CombatDataType[] | unknown[]
+    data: CombatDataType | unknown
   }
 
 type OverlayPluginApiType = {
@@ -264,8 +264,8 @@ export type CombatDataType = {
   Combatant: {
     [key: string]: CombatantType
   }
-  isActive: boolean
-  type: 'CombatData'
+  isActive: boolean | string
+  type: string | 'CombatData'
 }
 
 type DiscipleType = 'dow' | 'dol' | 'doh'
@@ -315,7 +315,8 @@ export type JobsType = {
 }
 
 export type ConfigType = {
-  showSetup?: boolean
+  theme: string
+  showSetup: boolean
   color?: string
   characterName?: string
   showRank?: boolean

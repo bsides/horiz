@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { configStore } from '../stores'
+  import { configStore } from '$/utils/stores'
 
   const togglables = Object.entries($configStore).filter(
     (entry) => typeof entry[1] === 'boolean' && entry[0] !== 'showSetup'

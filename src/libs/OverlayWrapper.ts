@@ -4,7 +4,7 @@ import type {
   OverlayWindowType,
   MessageEventOverlayType,
   CombatDataType,
-} from './types'
+} from '../utils/types'
 
 class OverlayWrapperBase {
   wsUrl: RegExpExecArray
@@ -18,9 +18,7 @@ class OverlayWrapperBase {
   sendMessage?: (obj: GenericObjectType, cb?: GenericCallbackType) => void
 
   init: () => void
-  processEvent: (
-    msg: CombatDataType | MessageEventOverlayType<CombatDataType>
-  ) => void
+  processEvent: (msg: CombatDataType | MessageEventOverlayType<CombatDataType>) => void
   connectWs: () => void
   waitForApi: () => void
 }
@@ -114,9 +112,7 @@ export default class OverlayWrapper extends OverlayWrapperBase {
     }
   }
 
-  processEvent = (
-    msg: CombatDataType | MessageEventOverlayType<CombatDataType>
-  ) => {
+  processEvent = (msg: CombatDataType | MessageEventOverlayType<CombatDataType>) => {
     if (this.subscribers[msg.type]) {
       for (let sub of this.subscribers[msg.type]) sub(msg)
     }
@@ -137,24 +133,21 @@ export default class OverlayWrapper extends OverlayWrapperBase {
       for (let msg of q) this.sendMessage(msg)
     })
     // On message try to parse the data
-    this.ws.addEventListener(
-      'message',
-      (msg: MessageEventOverlayType<CombatDataType>) => {
-        try {
-          msg = JSON.parse(msg.data)
-        } catch (e) {
-          console.error('Invalid message received: ', msg)
-          return
-        }
-
-        if (msg.rseq !== undefined && this.responsePromises[msg.rseq]) {
-          this.responsePromises[msg.rseq](msg)
-          delete this.responsePromises[msg.rseq]
-        } else {
-          this.processEvent(msg)
-        }
+    this.ws.addEventListener('message', (msg: MessageEventOverlayType<CombatDataType>) => {
+      try {
+        msg = JSON.parse(msg.data)
+      } catch (e) {
+        console.error('Invalid message received: ', msg)
+        return
       }
-    )
+
+      if (msg.rseq !== undefined && this.responsePromises[msg.rseq]) {
+        this.responsePromises[msg.rseq](msg)
+        delete this.responsePromises[msg.rseq]
+      } else {
+        this.processEvent(msg)
+      }
+    })
     // On close, remove any queue and try to reconneect every 3s
     this.ws.addEventListener('close', () => {
       this.queue = []

@@ -1,5 +1,5 @@
 <script lang="ts">
-  import type { EncounterType } from '../types'
+  import type { EncounterType } from '$/utils/types'
 
   export let data: EncounterType
 </script>

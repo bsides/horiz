@@ -1,6 +1,6 @@
-import type { CombatDataType, CombatantType } from './types'
+import type { CombatDataType, CombatantType } from '$/utils/types'
 
-export function getRandom(min: number, max: number) {
+export function getRandom(min: number, max: number): number {
   const first = Math.ceil(min)
   const last = Math.floor(max)
   return Math.floor(Math.random() * (last - first + 1)) + first

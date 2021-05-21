@@ -1,5 +1,5 @@
-import App from './App.svelte'
-import OverlayWrapper from './OverlayWrapper'
+import App from '$/App.svelte'
+import OverlayWrapper from '$/libs/OverlayWrapper'
 
 new OverlayWrapper()
 
