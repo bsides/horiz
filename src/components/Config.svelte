@@ -1,32 +1,32 @@
 <script lang="ts">
   import { configStore } from '../stores'
 
-  const config = {
-    testMode: false,
-    characterName: 'YOU',
-    locale: 'en',
-  }
-  function handleInput(evt) {
-    console.log(evt)
-  }
+  const togglables = Object.entries($configStore).filter(
+    (entry) => typeof entry[1] === 'boolean' && entry[0] !== 'showSetup'
+  )
 
-  function updateTestMode(evt) {
-    configStore.update((current) => ({ ...current, showSetup: evt.target.checked }))
-  }
   $: console.log($configStore)
+  $: console.log(togglables)
 </script>
 
 <div class="config">
   <h1>Config</h1>
   <div>
-    <input
-      type="checkbox"
-      name="test-mode"
-      bind:checked={config.testMode}
-      on:click={updateTestMode}
-    /> Test Mode
+    <label
+      ><input type="checkbox" name="test-mode" bind:checked={$configStore.showSetup} /> Test Mode</label
+    >
+    {#each togglables as toggle}
+      <label>
+        <input
+          type="checkbox"
+          id={`config-${toggle[0]}`}
+          name={`config-${toggle[0]}`}
+          bind:checked={$configStore[toggle[0]]}
+        />
+        {toggle[0]}
+      </label>
+    {/each}
   </div>
-  <pre>{JSON.stringify($configStore, null, 2)}</pre>
 </div>
 
 <style lang="scss">

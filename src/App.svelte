@@ -1,5 +1,7 @@
 <script lang="ts">
+  import { get } from 'svelte/store'
   import jsonPreview from './json/preview.json'
+  import { configStore } from './stores'
   import Config from './components/Config.svelte'
   import Encounter from './components/Encounter.svelte'
   import Battler from './components/Battler.svelte'
@@ -23,6 +25,10 @@
   //   newWindow.startOverlayEvents()
   // }
 
+  function handleContextMenu(evt: MouseEvent) {
+    evt.preventDefault()
+    configStore.toggle('showSetup')
+  }
   let preview = jsonPreview
 
   let clear
@@ -42,10 +48,10 @@
   }
 </script>
 
-<main>
+<main on:contextmenu={handleContextMenu}>
   <Encounter data={encounter} />
   <Battler data={battler} />
-  {#if true}
+  {#if $configStore.showSetup}
     <Config />
   {/if}
 </main>

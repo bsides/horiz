@@ -35,3 +35,7 @@ export const fakeDataTimer = (ActXivData: Partial<CombatDataType>) => {
     ActXivData.Combatant = combatant
   }, 2000)
 }
+
+export function toBoolean(value: string): boolean {
+  return /true/i.test(value)
+}

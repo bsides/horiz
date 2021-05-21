@@ -1,4 +1,5 @@
-import { writable } from 'svelte/store'
+import { Writable, writable } from 'svelte/store'
+import { toBoolean } from './helper'
 import type { ConfigType } from './types'
 
 const initialConfig: ConfigType = {
@@ -30,8 +31,18 @@ const initialConfig: ConfigType = {
   colorDps: 'rgba(244, 67, 54, 0.3)',
 }
 
+type ConfigStoreType<T> = Writable<ConfigType> & {
+  toggle?: (value: string) => void
+}
+
 const lsConfigStore = localStorage.getItem('configStore')
-export const configStore = writable(lsConfigStore ? JSON.parse(lsConfigStore) : initialConfig)
+console.log(lsConfigStore)
+export const configStore: ConfigStoreType<ConfigType> = writable(
+  lsConfigStore ? JSON.parse(lsConfigStore) : initialConfig
+)
 configStore.subscribe((value) => {
   localStorage.setItem('configStore', value ? JSON.stringify(value) : JSON.stringify(initialConfig))
 })
+configStore.toggle = (value: string) => {
+  configStore.update((current) => ({ ...current, [value]: !toBoolean(current[value]) }))
+}
