@@ -3,7 +3,7 @@
   import { configStore } from '$/utils/stores'
   import Config from '$/components/Config.svelte'
   import Encounter from '$/components/Encounter.svelte'
-  import Original from '$/themes/Original.svelte'
+  import Horizoverlay from '$/themes/Horizoverlay.svelte'
   import type { CombatantType, CombatDataType, CombatWindowType } from '$/utils/types'
   import { getNewRandom } from '$/utils/helper'
 
@@ -11,7 +11,7 @@
   let encounter = fullData?.Encounter
   let combatants: CombatantType[] = []
   let testData: CombatDataType = jsonPreview
-  let testModeTimer: number
+  let testModeTimer: ReturnType<typeof setTimeout>
 
   const newWindow: CombatWindowType = window as CombatWindowType
   newWindow.data = {}
@@ -19,6 +19,13 @@
   function handleContextMenu(evt: MouseEvent) {
     evt.preventDefault()
     configStore.toggle('showSetup')
+  }
+
+  function assignData(givenData: CombatDataType) {
+    newWindow.data = givenData
+    fullData = givenData
+    combatants = Object.keys(givenData.Combatant).map((key) => givenData.Combatant[key])
+    encounter = givenData.Encounter
   }
 
   $: {
@@ -31,19 +38,10 @@
         }
         testData.Combatant = combatant
       }, 1000)
-      newWindow.data = testData
-      fullData = testData
-      combatants = Object.keys(testData.Combatant).map((key) => testData.Combatant[key])
-      encounter = testData.Encounter
+      assignData(testData)
     } else {
       if (testModeTimer) clearInterval(testModeTimer)
-      newWindow.addOverlayListener('CombatData', (data) => {
-        const { Combatant } = data
-        newWindow.data = data
-        fullData = data
-        combatants = Object.keys(Combatant).map((key) => Combatant[key])
-        encounter = data.Encounter
-      })
+      newWindow.addOverlayListener('CombatData', (data) => assignData(data))
       newWindow.startOverlayEvents()
     }
   }
@@ -52,7 +50,7 @@
 <main on:contextmenu={handleContextMenu}>
   <Encounter data={encounter} />
   {#if $configStore.theme === 'original'}
-    <Original data={combatants} />
+    <Horizoverlay data={combatants} />
   {/if}
   {#if $configStore.showSetup}
     <Config />
