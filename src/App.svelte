@@ -3,7 +3,6 @@
   import { configStore } from '$/utils/stores'
   import Config from '$/components/Config.svelte'
   import Encounter from '$/components/Encounter.svelte'
-  import Battler from '$/components/Battler.svelte'
   import Original from '$/themes/Original.svelte'
   import type { CombatantType, CombatDataType, CombatWindowType } from '$/utils/types'
   import { getNewRandom } from '$/utils/helper'
@@ -11,39 +10,42 @@
   let fullData: CombatDataType
   let encounter = fullData?.Encounter
   let combatants: CombatantType[] = []
+  let testData: CombatDataType = jsonPreview
+  let testModeTimer: number
 
   const newWindow: CombatWindowType = window as CombatWindowType
   newWindow.data = {}
-  // if (newWindow !== undefined) {
-  //   newWindow.addOverlayListener('CombatData', (data) => {
-  //     const { Combatant } = data
-  //     fullData = data
-  //     combatants = Object.keys(Combatant).map((key) => Combatant[key])
-  //     console.log(combatants)
-  //   })
-  //   newWindow.startOverlayEvents()
-  // }
 
   function handleContextMenu(evt: MouseEvent) {
     evt.preventDefault()
     configStore.toggle('showSetup')
   }
-  let preview = jsonPreview
 
-  let clear: number
   $: {
-    clearInterval(clear)
-    clear = setInterval(() => {
-      const combatant = preview.Combatant
-      for (const i in combatant) {
-        combatant[i] = { ...combatant[i], ...getNewRandom() }
-      }
-      preview.Combatant = combatant
-    }, 1000)
-    newWindow.data = preview
-    fullData = preview
-    combatants = Object.keys(preview.Combatant).map((key) => preview.Combatant[key])
-    encounter = preview.Encounter
+    if ($configStore.testMode) {
+      clearInterval(testModeTimer)
+      testModeTimer = setInterval(() => {
+        const combatant = testData.Combatant
+        for (const i in combatant) {
+          combatant[i] = { ...combatant[i], ...getNewRandom() }
+        }
+        testData.Combatant = combatant
+      }, 1000)
+      newWindow.data = testData
+      fullData = testData
+      combatants = Object.keys(testData.Combatant).map((key) => testData.Combatant[key])
+      encounter = testData.Encounter
+    } else {
+      if (testModeTimer) clearInterval(testModeTimer)
+      newWindow.addOverlayListener('CombatData', (data) => {
+        const { Combatant } = data
+        newWindow.data = data
+        fullData = data
+        combatants = Object.keys(Combatant).map((key) => Combatant[key])
+        encounter = data.Encounter
+      })
+      newWindow.startOverlayEvents()
+    }
   }
 </script>
 
@@ -52,7 +54,6 @@
   {#if $configStore.theme === 'original'}
     <Original data={combatants} />
   {/if}
-  <Battler data={combatants} />
   {#if $configStore.showSetup}
     <Config />
   {/if}

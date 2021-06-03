@@ -5,5 +5,7 @@
 </script>
 
 <div>
-  {data.title} - {data.CurrentZoneName} - {data.ENCDPS} - {data.MAXHEAL} - {data.MAXHIT}
+  {#if data}
+    {data.title} - {data.CurrentZoneName} - {data.ENCDPS} - {data.MAXHEAL} - {data.MAXHIT}
+  {/if}
 </div>

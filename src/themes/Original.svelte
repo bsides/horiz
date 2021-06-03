@@ -14,6 +14,9 @@
 
   let showBattlerInfo = false
   const toggleShowBattlerInfo = () => (showBattlerInfo = !showBattlerInfo)
+
+  $: console.log(data)
+  // $: data = $configStore.data.sort((a, b) => Number(a.ENCDPS) - Number(b.ENCDPS))
 </script>
 
 <div class="battlers">
@@ -58,7 +61,13 @@
   .battler {
     position: relative;
     display: flex;
+    justify-content: space-between;
+    align-items: center;
     color: black;
+    margin-right: 10px;
+    width: 150px;
+    height: 26px;
+    text-align: center;
 
     & > div {
       z-index: 1;
