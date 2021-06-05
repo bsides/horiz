@@ -57,7 +57,8 @@
   {/if}
 </main>
 
-<style>
+<style lang="scss">
+  @import 'styles/global';
   main {
     text-align: center;
     padding: 1em;
