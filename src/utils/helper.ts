@@ -1,4 +1,4 @@
-import type { CombatDataType, CombatantType } from '$/utils/types'
+import type { CombatDataType, CombatantType, JobsType } from '$/utils/types'
 
 export function getRandom(min: number, max: number): number {
   const first = Math.ceil(min)
@@ -38,4 +38,13 @@ export const fakeDataTimer = (ActXivData: Partial<CombatDataType>) => {
 
 export function toBoolean(value: string): boolean {
   return /true/i.test(value)
+}
+
+// Obsolete functions
+function getJobImage(jobs: JobsType[], battler: CombatantType) {
+  const jobObj = jobs.filter((job) => job.short === battler.Job.toLowerCase())[0]
+  // const path = '/images/original'
+  const path = '/images/metal'
+  const fileType = 'png'
+  return `${path}/${jobObj.full}.${fileType}`
 }

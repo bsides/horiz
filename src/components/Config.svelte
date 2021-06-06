@@ -13,7 +13,7 @@
   <h1>Config</h1>
   <div>
     <label
-      ><input type="checkbox" name="test-mode" bind:checked={$configStore.showSetup} /> Test Mode</label
+      ><input type="checkbox" name="test-mode" bind:checked={$configStore.showSetup} /> Show this Window</label
     >
     {#each togglables as toggle}
       <label>

@@ -19,12 +19,14 @@
   },
   "devDependencies": {
     "@rollup/plugin-alias": "^3.1.2",
-    "@rollup/plugin-commonjs": "^17.0.0",
+    "@rollup/plugin-commonjs": "^19.0.0",
     "@rollup/plugin-json": "^4.1.0",
-    "@rollup/plugin-node-resolve": "^11.0.0",
+    "@rollup/plugin-node-resolve": "^13.0.0",
     "@rollup/plugin-typescript": "^8.0.0",
-    "@tsconfig/svelte": "^1.0.0",
+    "@tsconfig/svelte": "^2.0.1",
+    "autoprefixer": "^10.2.6",
     "node-sass": "^6.0.0",
+    "postcss": "^8.3.0",
     "rollup": "^2.3.4",
     "rollup-plugin-css-only": "^3.1.0",
     "rollup-plugin-livereload": "^2.0.0",
@@ -32,11 +34,11 @@
     "rollup-plugin-terser": "^7.0.0",
     "sirv-cli": "^1.0.0",
     "svelte": "^3.0.0",
-    "svelte-check": "^1.0.0",
+    "svelte-check": "^2.0.0",
     "svelte-i18n": "^3.3.9",
     "svelte-preprocess": "^4.0.0",
     "tslib": "^2.0.0",
-    "typescript": "^4.0.0"
+    "typescript": "^4.3.2"
   },
   "funding": {
     "type": "patreon",

@@ -317,6 +317,7 @@ export type JobsType = {
 export type ConfigType = {
   theme: string
   showSetup: boolean
+  testMode: boolean
   color?: string
   characterName?: string
   showRank?: boolean

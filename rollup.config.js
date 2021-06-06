@@ -49,7 +49,11 @@ export default {
     }),
     json({ compact: true }),
     svelte({
-      preprocess: sveltePreprocess({ sourceMap: !production }),
+      preprocess: sveltePreprocess({
+        sourceMap: !production,
+        postcss: { plugins: [require('autoprefixer')()] },
+        scss: { sourceMap: !production },
+      }),
       compilerOptions: {
         // enable run-time checks when not in production
         dev: !production,

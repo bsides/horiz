@@ -4,16 +4,17 @@
 
   export let data: CombatantType[]
 
-  const getJobImage = (battler: CombatantType) => {
-    const jobObj = jobs.filter((job) => job.short === battler.Job.toLowerCase())[0]
-    // const path = '/images/original'
-    const path = '/images/metal'
-    const fileType = 'png'
-    return `${path}/${jobObj.full}.${fileType}`
-  }
+  const getJobShortName = (battler: CombatantType) =>
+    jobs.find((job) => job.short === battler.Job.toLowerCase()).short
 
   let showBattlerInfo = false
   const toggleShowBattlerInfo = () => (showBattlerInfo = !showBattlerInfo)
+
+  // Sorts the combatants according to options
+  // $: data = data.sort((a, b) => Number(a.ENCDPS) - Number(b.ENCDPS))
+
+  // Debug
+  // $: console.log(data)
 </script>
 
 <div class="battlers">
@@ -23,9 +24,10 @@
       on:mouseenter={toggleShowBattlerInfo}
       on:mouseleave={toggleShowBattlerInfo}
     >
-      <div>
+      <!-- <div>
         <img src={getJobImage(battler)} alt={`${battler.Job}'s class icon`} class="job-icon" />
-      </div>
+      </div> -->
+      <div class={`job-icon job-icon-${getJobShortName(battler)}`} />
       <div>{battler.name}</div>
       <div>{battler.ENCDPS} <span>DPS</span></div>
     </div>
@@ -58,7 +60,13 @@
   .battler {
     position: relative;
     display: flex;
+    justify-content: space-between;
+    align-items: center;
     color: black;
+    margin-right: 10px;
+    width: 150px;
+    height: 26px;
+    text-align: center;
 
     & > div {
       z-index: 1;
@@ -75,10 +83,18 @@
       z-index: 0;
     }
 
-    .job-icon {
+    /* .job-icon {
       width: 16px;
-    }
+    } */
   }
+  /* .job-icon {
+    background: url('/images/metal_sprite_squared.png');
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    width: 20px;
+    height: 20px;
+    background-size: 140px; // 7 sprites of 20px x 20px side by side
+  } */
   .battler-info {
     position: absolute;
     top: 21px;
@@ -86,7 +102,5 @@
     padding: 6px 12px;
     text-align: left;
   }
-  .layout-mode {
-    border: 2px solid red;
-  }
+  @import '../styles/sprites';
 </style>

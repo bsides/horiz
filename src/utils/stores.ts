@@ -3,7 +3,8 @@ import { toBoolean } from '$/utils/helper'
 import type { ConfigType } from '$/utils/types'
 
 const initialConfig: ConfigType = {
-  showSetup: false,
+  showSetup: true,
+  testMode: true,
   color: 'byRole',
   characterName: 'YOU',
   showRank: true,
@@ -37,13 +38,16 @@ type ConfigStoreType<T> = Writable<ConfigType> & {
 }
 
 const lsConfigStore = localStorage.getItem('configStore')
-console.log(lsConfigStore)
+function toggle(value: string) {
+  configStore.update((current) => ({ ...current, [value]: !toBoolean(current[value]) }))
+}
+
 export const configStore: ConfigStoreType<ConfigType> = writable(
   lsConfigStore ? JSON.parse(lsConfigStore) : initialConfig
 )
+
 configStore.subscribe((value) => {
   localStorage.setItem('configStore', value ? JSON.stringify(value) : JSON.stringify(initialConfig))
 })
-configStore.toggle = (value: string) => {
-  configStore.update((current) => ({ ...current, [value]: !toBoolean(current[value]) }))
-}
+
+configStore.toggle = toggle
