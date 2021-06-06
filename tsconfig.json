@@ -3,6 +3,7 @@
   "compilerOptions": {
     "sourceMap": true,
     "resolveJsonModule": true,
+    "types": ["node", "svelte"],
     "baseUrl": ".",
     "paths": {
       "$/*": ["src/*"]
