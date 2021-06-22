@@ -147,7 +147,7 @@
       "Last10DPS": "0",
       "Last30DPS": "0",
       "Last60DPS": "0",
-      "Job": "Rdm",
+      "Job": "rdm",
       "ParryPct": "25%",
       "BlockPct": "0%",
       "IncToHit": "84.62",
@@ -160,10 +160,10 @@
       "damageShield": "0",
       "absorbHeal": "0"
     },
-    "Doctor Cheesecake": {
+    "Kazlas Urkamort": {
       "n": "\n",
       "t": "\t",
-      "name": "Doctor Cheesecake",
+      "name": "Kazlas Urkamort",
       "duration": "03:48",
       "DURATION": "228",
       "damage": "89789",
@@ -323,7 +323,7 @@
       "Last10DPS": "0",
       "Last30DPS": "0",
       "Last60DPS": "0",
-      "Job": "Gnb",
+      "Job": "Sch",
       "ParryPct": "9%",
       "BlockPct": "0%",
       "IncToHit": "100.00",
@@ -336,10 +336,10 @@
       "damageShield": "0",
       "absorbHeal": "0"
     },
-    "Guru Clef": {
+    "Edooh Monax": {
       "n": "\n",
       "t": "\t",
-      "name": "Guru Clef",
+      "name": "Edooh Monax",
       "duration": "03:45",
       "DURATION": "225",
       "damage": "45250",
@@ -411,7 +411,7 @@
       "Last10DPS": "0",
       "Last30DPS": "0",
       "Last60DPS": "0",
-      "Job": "Gnb",
+      "Job": "Whm",
       "ParryPct": "33%",
       "BlockPct": "0%",
       "IncToHit": "100.00",
@@ -424,10 +424,10 @@
       "damageShield": "0",
       "absorbHeal": "0"
     },
-    "Fox Clef": {
+    "Panda Vlondett": {
       "n": "\n",
       "t": "\t",
-      "name": "Fox Clef",
+      "name": "Panda Vlondett",
       "duration": "03:22",
       "DURATION": "202",
       "damage": "40178",
@@ -499,7 +499,7 @@
       "Last10DPS": "0",
       "Last30DPS": "0",
       "Last60DPS": "0",
-      "Job": "Whm",
+      "Job": "Pld",
       "ParryPct": "0%",
       "BlockPct": "0%",
       "IncToHit": "60.00",
@@ -587,7 +587,7 @@
       "Last10DPS": "0",
       "Last30DPS": "0",
       "Last60DPS": "0",
-      "Job": "Sam",
+      "Job": "Drg",
       "ParryPct": "0%",
       "BlockPct": "0%",
       "IncToHit": "85.71",
@@ -675,7 +675,7 @@
       "Last10DPS": "0",
       "Last30DPS": "0",
       "Last60DPS": "0",
-      "Job": "Whm",
+      "Job": "Dnc",
       "ParryPct": "0%",
       "BlockPct": "0%",
       "IncToHit": "72.73",

@@ -4,8 +4,11 @@
 
   export let data: CombatantType[]
 
-  const getJobShortName = (battler: CombatantType) =>
-    jobs.find((job) => job.short === battler.Job.toLowerCase()).short
+  const getJobShortName = (battler: CombatantType) => {
+    const short = jobs.find((job) => job.short === battler.Job.toLowerCase())?.short
+    if (!short) return 'error'
+    return short
+  }
 
   let showBattlerInfo = false
   const toggleShowBattlerInfo = () => (showBattlerInfo = !showBattlerInfo)
@@ -27,7 +30,7 @@
       <!-- <div>
         <img src={getJobImage(battler)} alt={`${battler.Job}'s class icon`} class="job-icon" />
       </div> -->
-      <div class={`job-icon job-icon-${getJobShortName(battler)}`} />
+      <div class={`original job-icon ${getJobShortName(battler)}`} />
       <div>{battler.name}</div>
       <div>{battler.ENCDPS} <span>DPS</span></div>
     </div>

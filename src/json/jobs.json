@@ -125,7 +125,7 @@
     "disciple": "dow"
   },
   {
-    "short": "goldsmith",
+    "short": "gsm",
     "name": "Goldsmith",
     "full": "goldsmith",
     "role": "crafting",
@@ -195,7 +195,7 @@
     "disciple": "dow"
   },
   {
-    "short": "pug",
+    "short": "pgl",
     "name": "Pugilist",
     "full": "pugilist",
     "role": "dps",
@@ -230,7 +230,7 @@
     "disciple": "dow"
   },
   {
-    "short": "sum",
+    "short": "smn",
     "name": "Summoner",
     "full": "summoner",
     "role": "dps",
