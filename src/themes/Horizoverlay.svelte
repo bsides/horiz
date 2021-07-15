@@ -5,7 +5,7 @@
   export let data: CombatantType[]
 
   const getJobShortName = (battler: CombatantType) => {
-    const short = jobs.find((job) => job.short === battler.Job.toLowerCase())?.short
+    const short = jobs.find((job) => job.short === battler.Job?.toLowerCase())?.short
     if (!short) return 'error'
     return short
   }
