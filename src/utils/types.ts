@@ -317,8 +317,8 @@ export type JobsType = {
 export type ConfigType = {
   theme: string
   showSetup: boolean
-  testMode: boolean
-  color?: string
+  toggleTestNumbers: boolean
+  color?: 'byRole'
   characterName?: string
   showRank?: boolean
   showJobIcon?: boolean
@@ -335,7 +335,7 @@ export type ConfigType = {
   zoom?: string
   discord?: string
   maxCombatants?: number
-  locale?: string
+  locale?: 'enUS' | 'esES' | 'frFR' | 'ptBR' | 'zhCN' | 'zhHK'
   configWindow?: {
     width?: number
     height?: number
