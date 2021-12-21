@@ -512,10 +512,10 @@
       "damageShield": "0",
       "absorbHeal": "0"
     },
-    "Nibelung Valesti": {
+    "Zidane Tribal": {
       "n": "\n",
       "t": "\t",
-      "name": "Nibelung Valesti",
+      "name": "Zidane Tribal",
       "duration": "03:21",
       "DURATION": "201",
       "damage": "38687",
@@ -600,10 +600,10 @@
       "damageShield": "0",
       "absorbHeal": "0"
     },
-    "Yag Gigastaroth": {
+    "Yuna": {
       "n": "\n",
       "t": "\t",
-      "name": "Yag Gigastaroth",
+      "name": "Yuna",
       "duration": "04:01",
       "DURATION": "241",
       "damage": "38113",

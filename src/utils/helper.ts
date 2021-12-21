@@ -7,14 +7,18 @@ export function getRandom(min: number, max: number): number {
 }
 
 export function getNewRandom() {
-  return {
+  const newObjectWithRandomValues = {
     ENCDPS: `${getRandom(2200, 4500)}`,
     'damage%': `${getRandom(3, 28)}%`,
     'crithit%': `${getRandom(0, 76)}%`,
     'healed%': `${getRandom(0, 30)}%`,
     ENCHPS: `${getRandom(0, 6000)}`,
     deaths: `${getRandom(0, 3)}`,
+    crithits: `${getRandom(1, 34)}`,
+    DirectHitCount: `${getRandom(3, 49)}`,
+    DirectHitPct: `${getRandom(0, 56)}%`,
   }
+  return newObjectWithRandomValues
 }
 
 export function makeFakeData(ActXivData) {

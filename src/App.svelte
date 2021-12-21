@@ -11,7 +11,7 @@
   let encounter = fullData?.Encounter
   let combatants: CombatantType[] = []
   let testData: CombatDataType = jsonPreview
-  let testModeTimer: ReturnType<typeof setTimeout>
+  let testTimer: ReturnType<typeof setTimeout>
 
   const newWindow: CombatWindowType = window as CombatWindowType
   newWindow.data = {}
@@ -22,6 +22,7 @@
   }
 
   function assignData(givenData: CombatDataType) {
+    console.log(givenData)
     newWindow.data = givenData
     fullData = givenData
     combatants = Object.keys(givenData.Combatant).map((key) => givenData.Combatant[key])
@@ -29,9 +30,9 @@
   }
 
   $: {
-    if ($configStore.testMode) {
-      clearInterval(testModeTimer)
-      testModeTimer = setInterval(() => {
+    if ($configStore.toggleTestNumbers) {
+      clearInterval(testTimer)
+      testTimer = setInterval(() => {
         const combatant = testData.Combatant
         for (const i in combatant) {
           combatant[i] = { ...combatant[i], ...getNewRandom() }
@@ -40,7 +41,7 @@
       }, 1000)
       assignData(testData)
     } else {
-      if (testModeTimer) clearInterval(testModeTimer)
+      if (testTimer) clearInterval(testTimer)
       newWindow.addOverlayListener('CombatData', (data) => assignData(data))
       newWindow.startOverlayEvents()
     }

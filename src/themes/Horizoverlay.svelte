@@ -17,7 +17,7 @@
   // $: data = data.sort((a, b) => Number(a.ENCDPS) - Number(b.ENCDPS))
 
   // Debug
-  // $: console.log(data)
+  $: console.log(data)
 </script>
 
 <div class="battlers">
