@@ -1,9 +1,17 @@
+import React from 'react'
 import { useCombatData } from './context/useCombatData'
 
 export function Overlay() {
   const data = useCombatData()
 
-  console.log({ data })
-
-  return <div>DPS: {data?.combatants[0].ENCDPS}</div>
+  return (
+    <div>
+      {data?.combatants.map((combatant) => (
+        <React.Fragment key={combatant.name}>
+          <div>{combatant.name}</div>
+          <div>DPS: {combatant.ENCDPS}</div>
+        </React.Fragment>
+      ))}
+    </div>
+  )
 }

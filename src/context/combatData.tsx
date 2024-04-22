@@ -1,9 +1,7 @@
 import React from 'react'
 import type { OverlayDataForHoriz } from '../types'
-import JSONFakeData from '../utils/fakeData.json'
 import {
-  getRandom,
-  makeFakeData,
+  handleFakeDataStream,
   transformCombatDataIntoHorizData,
 } from '../utils/general'
 import { useOptions } from './useOptions'
@@ -42,15 +40,5 @@ export function CombatDataProvider(props: React.PropsWithChildren) {
     <CombatDataContext.Provider value={data}>
       {props.children}
     </CombatDataContext.Provider>
-  )
-}
-
-function handleFakeDataStream(cb: (data: OverlayDataForHoriz) => void) {
-  const fakeData = transformCombatDataIntoHorizData(JSONFakeData)
-  return setInterval(
-    () => {
-      cb(makeFakeData(fakeData))
-    },
-    getRandom(2000, 5000),
   )
 }

@@ -1,4 +1,5 @@
 import type { Combatant, OverlayData, OverlayDataForHoriz } from '../types'
+import JSONFakeData from './fakeData.json'
 
 export function getRandom(min: number, max: number): number {
   const first = Math.ceil(min)
@@ -24,46 +25,12 @@ export function transformCombatDataIntoHorizData(overlayData: OverlayData) {
   ) as unknown as OverlayDataForHoriz['combatants']
 
   return {
+    // For now, we don't need ACT's (really weird, as magic keys' object) format.
     // combatant: Combatant,
     combatants,
     encounter: Encounter,
     isActive,
   } as OverlayDataForHoriz
-}
-
-export function randomizeOverlayValues(overlayData?: OverlayDataForHoriz) {
-  if (isObjectEmpty(overlayData) || !overlayData) {
-    return {
-      ENCDPS: `${getRandom(2200, 4500)}`,
-      'damage%': `${getRandom(3, 28)}%`,
-      'crithit%': `${getRandom(0, 76)}%`,
-      'healed%': `${getRandom(0, 30)}%`,
-      ENCHPS: `${getRandom(0, 6000)}`,
-      deaths: `${getRandom(0, 3)}`,
-    }
-  }
-
-  const enchancedData = overlayData.combatants.map((combatant) => {
-    const entries = Object.entries(combatant)
-    const newEntries = entries.map(([key, value]) => {
-      const valueToNumber = getNumber(value)
-      if (valueToNumber) {
-        if (valueToNumber >= 1) {
-          return [
-            key,
-            `${getRandom(valueToNumber, valueToNumber + 0.5 * valueToNumber)}`,
-          ]
-        }
-        return [key, `${getRandom(200, 500)}%`]
-      }
-
-      return [key, value]
-    })
-
-    return Object.fromEntries(newEntries)
-  })
-
-  return enchancedData
 }
 
 export function randomizeCombatantValues(combatant?: Combatant) {
@@ -105,6 +72,31 @@ function getNumber(value: number | string) {
   }
 }
 
+export function makeFakeData(overlayData: OverlayDataForHoriz) {
+  const { combatants } = overlayData
+  for (const combatantId in combatants) {
+    combatants[combatantId] = {
+      ...combatants[combatantId],
+      ...randomizeCombatantValues(combatants[combatantId]),
+    }
+  }
+  return { ...overlayData, combatants } satisfies OverlayDataForHoriz
+}
+
+export function handleFakeDataStream(cb: (data: OverlayDataForHoriz) => void) {
+  const fakeData = transformCombatDataIntoHorizData(JSONFakeData)
+  return setInterval(
+    () => {
+      cb(makeFakeData(fakeData))
+    },
+    getRandom(2000, 5000),
+  )
+}
+
+// export function wait(delay: number) {
+//   return new Promise((resolve) => setTimeout(resolve, delay))
+// }
+
 // function convertCombatantValueToNumber(
 //   combatantValue: Combatant[keyof Combatant],
 // ) {
@@ -124,18 +116,3 @@ function getNumber(value: number | string) {
 //     }
 //   }
 // }
-
-export function makeFakeData(overlayData: OverlayDataForHoriz) {
-  const { combatants } = overlayData
-  for (const combatantId in combatants) {
-    combatants[combatantId] = {
-      ...combatants[combatantId],
-      ...randomizeCombatantValues(combatants[combatantId]),
-    }
-  }
-  return { ...overlayData, combatants } satisfies OverlayDataForHoriz
-}
-
-export function wait(delay: number) {
-  return new Promise((resolve) => setTimeout(resolve, delay))
-}
