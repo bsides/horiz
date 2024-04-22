@@ -7,7 +7,7 @@ export function Overlay() {
   return (
     <div>
       {data?.combatants.map((combatant) => (
-        <React.Fragment key={combatant.name}>
+        <React.Fragment key={combatant.name + combatant.deaths + combatant.DPS}>
           <div>{combatant.name}</div>
           <div>DPS: {combatant.ENCDPS}</div>
         </React.Fragment>

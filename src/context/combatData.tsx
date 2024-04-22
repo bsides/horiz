@@ -1,9 +1,7 @@
 import React from 'react'
-import type { OverlayDataForHoriz } from '../types'
-import {
-  handleFakeDataStream,
-  transformCombatDataIntoHorizData,
-} from '../utils/general'
+import type { OverlayData, OverlayDataForHoriz } from '../types'
+import { handleFakeDataStream } from '../utils/fakeCombatData'
+import { convertCombatDataIntoHorizData } from '../utils/general'
 import { useOptions } from './useOptions'
 
 export const CombatDataContext =
@@ -13,12 +11,15 @@ export function CombatDataProvider(props: React.PropsWithChildren) {
   const { options } = useOptions()
   const [data, setData] = React.useState<OverlayDataForHoriz | null>(null)
 
+  const handleCombatData = (data: OverlayData) => {
+    const convertedData = convertCombatDataIntoHorizData(data)
+    setData(convertedData)
+  }
+
   React.useEffect(() => {
     // Regular conditions, data flowing from ACT's FFXIV + Overlay plugins
     if (!options.isTestData) {
-      window.addOverlayListener('CombatData', (data) =>
-        setData(transformCombatDataIntoHorizData(data)),
-      )
+      window.addOverlayListener('CombatData', handleCombatData)
       window.startOverlayEvents()
     }
 
