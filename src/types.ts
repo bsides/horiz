@@ -9,7 +9,7 @@ export type OverlayDataForHoriz = {
   combatant?: ListOfCombatantsInObjectFormat
   combatants: Combatant[]
   encounter: Encounter
-  isActive: string
+  isActive: boolean // we transform it because... why use it as string?
 }
 
 export type Encounter = {
@@ -180,4 +180,5 @@ export type Combatant = {
 // ------------------------
 export type Options = {
   isTestData: boolean
+  [key: string]: string | boolean | number
 }

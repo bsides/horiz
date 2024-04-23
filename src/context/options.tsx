@@ -2,7 +2,9 @@ import React from 'react'
 import type { Options } from '../types'
 
 const optionsInitialData: Options = {
-  isTestData: true,
+  isTestData: false,
+  dpsType: 'encounter',
+  dpsShowDecimals: true,
 }
 
 type OptionsContextType = {

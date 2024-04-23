@@ -34,7 +34,11 @@
 .nodata {
   text-align: center;
 
-  header {
-    background: white;
+  > .header {
+    background-color: white;
   }
 }
+/* Seriously outdated chrome?
+.nodata > .header {
+  background-color: red;
+} */

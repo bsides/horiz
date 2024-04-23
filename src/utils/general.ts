@@ -24,17 +24,22 @@ export function getNumber(value: number | string) {
 }
 
 export function convertCombatDataIntoHorizData(overlayData: OverlayData) {
-  const { Combatant, Encounter, isActive } = overlayData
+  const {
+    Combatant,
+    Encounter: encounter,
+    isActive: originalIsActive,
+  } = overlayData
   const combatantsNames = Object.keys(Combatant)
   const combatants = combatantsNames.map(
     (combatantName) => Combatant[combatantName as keyof typeof Combatant],
   ) as unknown as OverlayDataForHoriz['combatants']
+  const isActive = originalIsActive === 'true' ? true : false
 
   return {
     // For now, we don't need ACT's (really weird, as magic keys' object) format.
     // combatant: Combatant,
     combatants,
-    encounter: Encounter,
+    encounter,
     isActive,
   } as OverlayDataForHoriz
 }

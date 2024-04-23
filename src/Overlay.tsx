@@ -1,3 +1,4 @@
+import { Player } from './Player'
 import { useCombatData } from './context/useCombatData'
 
 export function Overlay() {
@@ -6,22 +7,24 @@ export function Overlay() {
   if (data) {
     return (
       <div className="overlay">
-        {data?.combatants.map((combatant) => (
-          <div key={combatant.name + combatant.deaths + combatant.DPS}>
-            <div>{combatant.name}</div>
-            <div>DPS: {combatant.ENCDPS}</div>
-          </div>
-        ))}
+        {data?.combatants.map((combatant) => {
+          return (
+            <Player
+              key={combatant.name + combatant.deaths + combatant.DPS}
+              combatant={combatant}
+            />
+          )
+        })}
       </div>
     )
   }
 
   return (
     <div className="nodata">
-      <header>
+      <div className="header">
         <p>H O R I Z</p>
         <p>Awaiting for combat data...</p>
-      </header>
+      </div>
     </div>
   )
 }

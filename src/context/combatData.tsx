@@ -12,8 +12,10 @@ export function CombatDataProvider(props: React.PropsWithChildren) {
   const [data, setData] = React.useState<OverlayDataForHoriz | null>(null)
 
   const handleCombatData = (data: OverlayData) => {
-    const convertedData = convertCombatDataIntoHorizData(data)
-    setData(convertedData)
+    if (data.isActive === 'true') {
+      const convertedData = convertCombatDataIntoHorizData(data)
+      setData(convertedData)
+    }
   }
 
   React.useEffect(() => {
