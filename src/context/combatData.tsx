@@ -1,14 +1,14 @@
 import React from 'react'
+import { useSettingsStore } from '../store/settings'
 import type { OverlayData, OverlayDataForHoriz } from '../types'
 import { handleFakeDataStream } from '../utils/fakeCombatData'
 import { convertCombatDataIntoHorizData } from '../utils/general'
-import { useOptions } from './useOptions'
 
 export const CombatDataContext =
   React.createContext<OverlayDataForHoriz | null>(null)
 
 export function CombatDataProvider(props: React.PropsWithChildren) {
-  const { options } = useOptions()
+  const settings = useSettingsStore()
   const [data, setData] = React.useState<OverlayDataForHoriz | null>(null)
 
   const handleCombatData = (data: OverlayData) => {
@@ -20,14 +20,14 @@ export function CombatDataProvider(props: React.PropsWithChildren) {
 
   React.useEffect(() => {
     // Regular conditions, data flowing from ACT's FFXIV + Overlay plugins
-    if (!options.isTestData) {
+    if (!settings.isTestData) {
       window.addOverlayListener('CombatData', handleCombatData)
       window.startOverlayEvents()
     }
 
     // Special condition, used to configure the interface or during development
     // Sends fake data through the application
-    if (options.isTestData) {
+    if (settings.isTestData) {
       window.__HORIZ__.intervalId = handleFakeDataStream(setData)
     }
 
@@ -37,7 +37,7 @@ export function CombatDataProvider(props: React.PropsWithChildren) {
         clearInterval(window.__HORIZ__.intervalId)
       }
     }
-  }, [options.isTestData])
+  }, [settings.isTestData])
 
   return (
     <CombatDataContext.Provider value={data}>

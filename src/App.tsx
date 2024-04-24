@@ -1,6 +1,5 @@
 import { Overlay } from './Overlay'
 import { CombatDataProvider } from './context/combatData'
-import { OptionsProvider } from './context/options'
 import type { OverlayData } from './types'
 
 declare global {
@@ -14,11 +13,9 @@ declare global {
 
 export function App() {
   return (
-    <OptionsProvider>
-      <CombatDataProvider>
-        <Overlay />
-      </CombatDataProvider>
-    </OptionsProvider>
+    <CombatDataProvider>
+      <Overlay />
+    </CombatDataProvider>
   )
 }
 

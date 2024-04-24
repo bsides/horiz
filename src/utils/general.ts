@@ -17,7 +17,11 @@ export function isObjectEmpty(
 }
 
 export function getNumber(value: number | string) {
-  const valueToNumber = Number(value)
+  const convertedValue =
+    typeof value === 'string' && value.includes(',')
+      ? value.replace(',', '.')
+      : value
+  const valueToNumber = +convertedValue
   if (typeof valueToNumber === 'number' && !isNaN(valueToNumber)) {
     return valueToNumber
   }

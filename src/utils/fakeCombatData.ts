@@ -59,6 +59,9 @@ export function randomizeCombatantValues(combatant?: Combatant) {
   const entries = Object.entries(combatant)
   const newEntries = entries.map(([key, value]) => {
     const valueToNumber = getNumber(value)
+    // if (key.toLowerCase() === 'dps' || key.toLowerCase() === 'encdps') {
+    //   console.log({ key, valueToNumber })
+    // }
     if (valueToNumber) {
       if (valueToNumber >= 1) {
         return [
