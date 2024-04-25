@@ -2,7 +2,10 @@ import React from 'react'
 import { useSettingsStore } from '../store/settings'
 import type { OverlayData, OverlayDataForHoriz } from '../types'
 import { handleFakeDataStream } from '../utils/fakeCombatData'
-import { convertCombatDataIntoHorizData } from '../utils/general'
+import {
+  convertCombatDataIntoHorizData,
+  sortCombatants,
+} from '../utils/general'
 
 export const CombatDataContext =
   React.createContext<OverlayDataForHoriz | null>(null)
@@ -14,7 +17,8 @@ export function CombatDataProvider({ children }: React.PropsWithChildren) {
   const handleCombatData = (data: OverlayData) => {
     if (data.isActive === 'true') {
       const convertedData = convertCombatDataIntoHorizData(data)
-      setData(convertedData)
+      const sortedData = sortCombatants(convertedData.combatants)
+      setData({ ...convertedData, combatants: sortedData })
     }
   }
 

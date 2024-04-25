@@ -1,11 +1,10 @@
-import { useSettingsStore } from './store/settings'
-import { Horiz } from './theme/Horiz'
-import { Combatant } from './types'
+import { useSettingsStore } from '../store/settings'
+import { Combatant } from '../types'
 
-type PlayerProps = {
+type HorizProps = {
   combatant: Combatant
 }
-export function Player({ combatant }: PlayerProps) {
+export function Horiz({ combatant }: HorizProps) {
   const settings = useSettingsStore()
 
   function getDPS(combatant: Combatant) {
@@ -26,15 +25,11 @@ export function Player({ combatant }: PlayerProps) {
     return combatant.ENCDPS
   }
 
-  if (settings.theme === 'horiz') {
-    return <Horiz combatant={combatant} />
-  }
-
   return (
     <div>
-      <div>{combatant.name}</div>
-      <div>{getDPS(combatant)}</div>
-      <div>
+      <div className="">{combatant.name}</div>
+      <div className="">{getDPS(combatant)}</div>
+      <div className="">
         D / ! / !!! {combatant.DirectHitPct} / {combatant['crithit%']} /{' '}
         {combatant.CritDirectHitPct}
       </div>

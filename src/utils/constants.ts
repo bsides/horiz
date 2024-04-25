@@ -1,3 +1,10 @@
+export const DEFAULT_SETTINGS = {
+  isTestData: true,
+  dpsType: 'encounter',
+  dpsShowDecimals: true,
+  theme: 'Horiz',
+  sortBy: 'encdps',
+}
 export const TEST_NUMBER_OF_COMBATANTS = 8
 export const TEST_NAME_OF_COMBATANTS = [
   'YOU',

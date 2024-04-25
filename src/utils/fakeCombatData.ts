@@ -6,6 +6,7 @@ import {
   getNumber,
   getRandom,
   isObjectEmpty,
+  sortCombatants,
 } from './general'
 
 export function handleFakeDataStream(cb: (data: OverlayDataForHoriz) => void) {
@@ -36,10 +37,11 @@ export function makeFakeData(overlayData: OverlayDataForHoriz) {
       name,
     }
   })
+  const sortedCombatants = sortCombatants(combatants)
 
   return {
     ...overlayData,
-    combatants,
+    combatants: sortedCombatants,
   } satisfies OverlayDataForHoriz
 }
 
@@ -47,7 +49,9 @@ export function randomizeCombatantValues(combatant?: Combatant) {
   if (isObjectEmpty(combatant) || !combatant) {
     return {
       DPS: `${getRandom(2200, 4500)}`,
+      dps: `${getRandom(2200.99, 4500.99)}`,
       ENCDPS: `${getRandom(2200, 4500)}`,
+      encdps: `${getRandom(2200.99, 4500.99)}`,
       'damage%': `${getRandom(3, 28)}%`,
       'crithit%': `${getRandom(0, 76)}%`,
       'healed%': `${getRandom(0, 30)}%`,
@@ -56,8 +60,7 @@ export function randomizeCombatantValues(combatant?: Combatant) {
     }
   }
 
-  const entries = Object.entries(combatant)
-  const newEntries = entries.map(([key, value]) => {
+  const newEntries = Object.entries(combatant).map(([key, value]) => {
     const valueToNumber = getNumber(value)
 
     if (typeof valueToNumber !== 'undefined') {
@@ -78,8 +81,6 @@ export function randomizeCombatantValues(combatant?: Combatant) {
 
     return [key, value]
   })
-
-  // console.log({ newEntries })
 
   return Object.fromEntries(newEntries)
 }

@@ -1,4 +1,5 @@
-import type { OverlayData, OverlayDataForHoriz } from '../types'
+import type { Combatant, OverlayData, OverlayDataForHoriz } from '../types'
+import { DEFAULT_SETTINGS } from './constants'
 
 export function getRandom(min: number, max: number): number {
   const first = Math.ceil(min)
@@ -45,6 +46,15 @@ function removeSymbolsFromNumber(value: string) {
   }
 
   return newValue || value
+}
+
+export function sortCombatants(
+  combatants: Combatant[],
+  keyToCompare = DEFAULT_SETTINGS.sortBy as keyof Combatant,
+) {
+  return [...combatants].sort(
+    (a, b) => parseFloat(b[keyToCompare]) - parseFloat(a[keyToCompare]),
+  )
 }
 
 export function convertCombatDataIntoHorizData(overlayData: OverlayData) {

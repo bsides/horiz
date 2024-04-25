@@ -1,11 +1,10 @@
 import { create } from 'zustand'
 import { devtools } from 'zustand/middleware'
+import { DEFAULT_SETTINGS } from '../utils/constants'
 
 export type SettingsState = typeof initialState
 const initialState = {
-  isTestData: true,
-  dpsType: 'encounter',
-  dpsShowDecimals: true,
+  ...DEFAULT_SETTINGS,
 }
 
 export type SettingsActions = {
