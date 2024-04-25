@@ -28,7 +28,10 @@ export function Player({ combatant }: PlayerProps) {
   return (
     <div>
       <div>{combatant.name}</div>
-      <div>DPS: {getDPS(combatant)}</div>
+      <div>{getDPS(combatant)}</div>
+      <div>! {combatant.DirectHitPct}</div>
+      <div>!! {combatant['crithit%']}</div>
+      <div>!!! {combatant.CritDirectHitPct}</div>
     </div>
   )
 }

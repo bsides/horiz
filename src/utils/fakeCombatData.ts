@@ -59,18 +59,27 @@ export function randomizeCombatantValues(combatant?: Combatant) {
   const entries = Object.entries(combatant)
   const newEntries = entries.map(([key, value]) => {
     const valueToNumber = getNumber(value)
-    if (valueToNumber) {
+
+    if (typeof valueToNumber !== 'undefined') {
+      const addSymbolsToNumber = `${value.includes('K') ? 'K' : ''}${value.includes('M') ? 'M' : ''}${value.includes('%') ? '%' : ''}`
+
       if (valueToNumber > 0) {
         return [
           key,
-          `${getRandom(valueToNumber, valueToNumber + 0.5 * valueToNumber)}`,
+          `${getRandom(valueToNumber, valueToNumber + 0.5 * valueToNumber)}${addSymbolsToNumber}`,
         ]
       }
-      return [key, `${getRandom(200, 500)}%`]
+
+      return [
+        key,
+        `${getRandom(0, value.includes('%') ? 10 : 300)}${addSymbolsToNumber}`,
+      ]
     }
 
     return [key, value]
   })
+
+  // console.log({ newEntries })
 
   return Object.fromEntries(newEntries)
 }

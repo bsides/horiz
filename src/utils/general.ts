@@ -19,13 +19,32 @@ export function isObjectEmpty(
 
 export function getNumber(value: number | string) {
   const convertedValue =
-    typeof value === 'string' && value.includes(',')
-      ? value.replace(',', '.')
-      : value
+    typeof value === 'string' ? removeSymbolsFromNumber(value) : value
   const valueToNumber = +convertedValue
   if (typeof valueToNumber === 'number' && !isNaN(valueToNumber)) {
     return valueToNumber
   }
+}
+
+function removeSymbolsFromNumber(value: string) {
+  let newValue = ''
+  if (value.includes(',')) {
+    newValue = value.replace(',', '.')
+  }
+
+  if (value.includes('%')) {
+    newValue = value.replace('%', '')
+  }
+
+  if (value.includes('K')) {
+    newValue = value.replace('K', '')
+  }
+
+  if (value.includes('M')) {
+    newValue = value.replace('M', '')
+  }
+
+  return newValue || value
 }
 
 export function convertCombatDataIntoHorizData(overlayData: OverlayData) {
