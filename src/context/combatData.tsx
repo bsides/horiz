@@ -7,7 +7,7 @@ import { convertCombatDataIntoHorizData } from '../utils/general'
 export const CombatDataContext =
   React.createContext<OverlayDataForHoriz | null>(null)
 
-export function CombatDataProvider(props: React.PropsWithChildren) {
+export function CombatDataProvider({ children }: React.PropsWithChildren) {
   const settings = useSettingsStore()
   const [data, setData] = React.useState<OverlayDataForHoriz | null>(null)
 
@@ -41,7 +41,7 @@ export function CombatDataProvider(props: React.PropsWithChildren) {
 
   return (
     <CombatDataContext.Provider value={data}>
-      {props.children}
+      {children}
     </CombatDataContext.Provider>
   )
 }

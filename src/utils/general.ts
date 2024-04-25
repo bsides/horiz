@@ -3,7 +3,8 @@ import type { OverlayData, OverlayDataForHoriz } from '../types'
 export function getRandom(min: number, max: number): number {
   const first = Math.ceil(min)
   const last = Math.floor(max)
-  return Math.floor(Math.random() * (last - first + 1)) + first
+  const result = Math.random() * (last - first + 1) + first
+  return +result.toFixed(2)
 }
 
 export function isObjectEmpty(
