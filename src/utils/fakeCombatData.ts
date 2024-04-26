@@ -1,14 +1,17 @@
-import { useSettingsStore } from '../store/settings'
-import type { Combatant, OverlayDataForHoriz } from '../types'
-import { TEST_NAME_OF_COMBATANTS, TEST_NUMBER_OF_COMBATANTS } from './constants'
-import JSONFakeData from './fakeData.json'
+import { useSettingsStore } from '~/store/settings'
+import type { Combatant, OverlayDataForHoriz } from '~/types'
+import {
+  TEST_NAME_OF_COMBATANTS,
+  TEST_NUMBER_OF_COMBATANTS,
+} from '~/utils/constants'
+import JSONFakeData from '~/utils/fakeData.json'
 import {
   convertCombatDataIntoHorizData,
   getNumber,
   getRandom,
   isObjectEmpty,
   sortCombatants,
-} from './general'
+} from '~/utils/general'
 
 export function handleFakeDataStream(cb: (data: OverlayDataForHoriz) => void) {
   const fakeData = convertCombatDataIntoHorizData(JSONFakeData)

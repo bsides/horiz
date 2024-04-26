@@ -1,5 +1,5 @@
-import { useCombatData } from './context/useCombatData'
-import { Horiz } from './theme/Horiz'
+import { useCombatData } from '~/context/useCombatData'
+import { Horiz } from '~/theme/Horiz'
 
 export function Overlay() {
   const data = useCombatData()

@@ -1,6 +1,6 @@
 import { create } from 'zustand'
 import { devtools } from 'zustand/middleware'
-import { DEFAULT_SETTINGS } from '../utils/constants'
+import { DEFAULT_SETTINGS } from '~/utils/constants'
 
 export type SettingsState = typeof initialState
 const initialState = {

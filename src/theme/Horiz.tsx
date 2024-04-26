@@ -1,6 +1,6 @@
 import { LayoutGroup, motion } from 'framer-motion'
-import { useSettingsStore } from '../store/settings'
-import { Combatant } from '../types'
+import { useSettingsStore } from '~/store/settings'
+import type { Combatant } from '~/types'
 
 type HorizProps = {
   combatant: Combatant

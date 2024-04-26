@@ -1,5 +1,5 @@
-import { useSettingsStore } from '../store/settings'
-import type { Combatant, OverlayData, OverlayDataForHoriz } from '../types'
+import { useSettingsStore } from '~/store/settings'
+import type { Combatant, OverlayData, OverlayDataForHoriz } from '~/types'
 import { DEFAULT_SETTINGS } from './constants'
 
 export function getRandom(min: number, max: number): number {

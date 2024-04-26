@@ -1,11 +1,8 @@
 import React from 'react'
-import { useSettingsStore } from '../store/settings'
-import type { OverlayData, OverlayDataForHoriz } from '../types'
-import { handleFakeDataStream } from '../utils/fakeCombatData'
-import {
-  convertCombatDataIntoHorizData,
-  sortCombatants,
-} from '../utils/general'
+import { useSettingsStore } from '~/store/settings'
+import type { OverlayData, OverlayDataForHoriz } from '~/types'
+import { handleFakeDataStream } from '~/utils/fakeCombatData'
+import { convertCombatDataIntoHorizData, sortCombatants } from '~/utils/general'
 
 export const CombatDataContext =
   React.createContext<OverlayDataForHoriz | null>(null)

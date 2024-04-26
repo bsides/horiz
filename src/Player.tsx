@@ -1,6 +1,6 @@
-import { useSettingsStore } from './store/settings'
-import { Horiz } from './theme/Horiz'
-import { Combatant } from './types'
+import { useSettingsStore } from '~/store/settings'
+import { Horiz } from '~/theme/Horiz'
+import type { Combatant } from '~/types'
 
 type PlayerProps = {
   combatant: Combatant

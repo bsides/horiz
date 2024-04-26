@@ -1,4 +1,4 @@
-import { Combatant } from '../types'
+import type { Combatant } from '~/types'
 
 export const DEFAULT_SETTINGS = {
   isTestData: true,

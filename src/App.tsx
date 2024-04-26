@@ -1,6 +1,6 @@
-import { Overlay } from './Overlay'
-import { CombatDataProvider } from './context/combatData'
-import type { OverlayData } from './types'
+import { Overlay } from '~/Overlay'
+import { CombatDataProvider } from '~/context/combatData'
+import type { OverlayData } from '~/types'
 
 declare global {
   interface Window {
