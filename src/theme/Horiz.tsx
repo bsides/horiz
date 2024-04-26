@@ -31,14 +31,14 @@ export function Horiz({ combatant }: HorizProps) {
       <motion.div
         key={combatant.name}
         layout={!settings.prefersReducedMotion}
-        className="bg-white relative before:content-[''] before:transform before:skew-x-[-30deg] before:absolute before:w-full before:h-full before:z-0 before:bg-white z-10"
+        className="relative z-10 bg-white px-4 py-2 pr-5 before:absolute before:-z-10 before:-mx-4 before:-my-2 before:block before:h-full before:w-[96%] before:skew-x-[-30deg] before:bg-pink-500 before:content-['']"
       >
         <div className="">{combatant.name}</div>
-        <div className="">{getDPS(combatant)}</div>
-        <div className="">
+        <div className="-ml-2">{getDPS(combatant)}</div>
+        {/* <div className="">
           D / ! / !!! {combatant.DirectHitPct} / {combatant['crithit%']} /{' '}
           {combatant.CritDirectHitPct}
-        </div>
+        </div> */}
       </motion.div>
     </LayoutGroup>
   )

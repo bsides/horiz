@@ -6,7 +6,7 @@ export function Overlay() {
 
   if (data) {
     return (
-      <div className="flex gap-4 justify-center text-center bg-[--overlay-color-background]">
+      <div className="flex justify-center gap-4 bg-[--overlay-color-background] text-center">
         {data?.combatants.map((combatant) => {
           return <Player key={combatant.name} combatant={combatant} />
         })}
