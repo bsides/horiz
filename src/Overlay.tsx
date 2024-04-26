@@ -1,25 +1,25 @@
+import { Player } from '~/Player'
 import { useCombatData } from '~/context/useCombatData'
-import { Horiz } from '~/theme/Horiz'
 
 export function Overlay() {
   const data = useCombatData()
 
   if (data) {
     return (
-      <div className="overlay">
+      <div className="flex gap-4 justify-center text-center bg-[--overlay-color-background]">
         {data?.combatants.map((combatant) => {
-          return <Horiz key={combatant.name} combatant={combatant} />
+          return <Player key={combatant.name} combatant={combatant} />
         })}
       </div>
     )
   }
 
   return (
-    <div className="nodata">
-      <div className="header">
+    <div className="text-center">
+      <header className="bg-white">
         <p>H O R I Z</p>
         <p>Awaiting for combat data...</p>
-      </div>
+      </header>
     </div>
   )
 }

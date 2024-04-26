@@ -4,7 +4,7 @@ export const DEFAULT_SETTINGS = {
   isTestData: true,
   dpsType: 'encounter',
   dpsShowDecimals: true,
-  theme: 'Horiz',
+  theme: 'horiz',
   sortBy: 'dps' as keyof Combatant,
   sortOrder: 'desc' as 'asc' | 'desc',
   prefersReducedMotion: false,

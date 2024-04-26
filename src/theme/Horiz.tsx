@@ -31,7 +31,7 @@ export function Horiz({ combatant }: HorizProps) {
       <motion.div
         key={combatant.name}
         layout={!settings.prefersReducedMotion}
-        className="combatant"
+        className="bg-white relative before:content-[''] before:transform before:skew-x-[-30deg] before:absolute before:w-full before:h-full before:z-0 before:bg-white z-10"
       >
         <div className="">{combatant.name}</div>
         <div className="">{getDPS(combatant)}</div>
