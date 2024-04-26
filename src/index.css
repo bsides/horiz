@@ -27,8 +27,11 @@
   display: flex;
   gap: 1rem;
   justify-content: center;
-  background-color: var(--overlay-color-background);
+  /* display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1rem; */
   text-align: center;
+  background-color: var(--overlay-color-background);
 }
 
 .nodata {
@@ -42,3 +45,7 @@
 .nodata > .header {
   background-color: red;
 } */
+
+.combatant {
+  background-color: white;
+}

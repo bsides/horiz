@@ -1,5 +1,5 @@
-import { Player } from './Player'
 import { useCombatData } from './context/useCombatData'
+import { Horiz } from './theme/Horiz'
 
 export function Overlay() {
   const data = useCombatData()
@@ -8,12 +8,7 @@ export function Overlay() {
     return (
       <div className="overlay">
         {data?.combatants.map((combatant) => {
-          return (
-            <Player
-              key={combatant.name + combatant.deaths + combatant.DPS}
-              combatant={combatant}
-            />
-          )
+          return <Horiz key={combatant.name} combatant={combatant} />
         })}
       </div>
     )
