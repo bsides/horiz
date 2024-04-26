@@ -23,7 +23,8 @@ export function CombatDataProvider({ children }: React.PropsWithChildren) {
   }
 
   React.useEffect(() => {
-    // Regular conditions, data flowing from ACT's FFXIV + Overlay plugins
+    // Regular condition, data flowing from ACT's FFXIV + Overlay plugins
+    // These functions come from the shared script in public.html (predefined websocket events)
     if (!settings.isTestData) {
       window.addOverlayListener('CombatData', handleCombatData)
       window.startOverlayEvents()

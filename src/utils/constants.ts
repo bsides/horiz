@@ -1,9 +1,12 @@
+import { Combatant } from '../types'
+
 export const DEFAULT_SETTINGS = {
   isTestData: true,
   dpsType: 'encounter',
   dpsShowDecimals: true,
   theme: 'Horiz',
-  sortBy: 'encdps',
+  sortBy: 'dps' as keyof Combatant,
+  sortOrder: 'desc' as 'asc' | 'desc',
 }
 export const TEST_NUMBER_OF_COMBATANTS = 8
 export const TEST_NAME_OF_COMBATANTS = [

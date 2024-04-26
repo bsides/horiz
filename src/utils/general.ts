@@ -1,3 +1,4 @@
+import { useSettingsStore } from '../store/settings'
 import type { Combatant, OverlayData, OverlayDataForHoriz } from '../types'
 import { DEFAULT_SETTINGS } from './constants'
 
@@ -48,13 +49,29 @@ function removeSymbolsFromNumber(value: string) {
   return newValue || value
 }
 
+const keysToSortAsStrings: Array<keyof Combatant> = ['name', 'Job']
 export function sortCombatants(
   combatants: Combatant[],
-  keyToCompare = DEFAULT_SETTINGS.sortBy as keyof Combatant,
+  keyToCompare = DEFAULT_SETTINGS.sortBy,
+  orderToCompare = DEFAULT_SETTINGS.sortOrder,
 ) {
-  return [...combatants].sort(
-    (a, b) => parseFloat(b[keyToCompare]) - parseFloat(a[keyToCompare]),
-  )
+  const keyToCompareFromSettings = useSettingsStore.getState().sortBy
+  const sortOrderFromSettings = useSettingsStore.getState().sortOrder
+
+  return [...combatants].sort((a, b) => {
+    const key = keyToCompareFromSettings || keyToCompare
+    const order = sortOrderFromSettings || orderToCompare
+    const [first, second] =
+      order === 'desc' ? [b[key], a[key]] : [a[key], b[key]]
+
+    // as string
+    if (keysToSortAsStrings.includes(key)) {
+      return first.toLowerCase() < second.toLowerCase() ? -1 : 1
+    }
+
+    // as number
+    return parseFloat(first) - parseFloat(second)
+  })
 }
 
 export function convertCombatDataIntoHorizData(overlayData: OverlayData) {
