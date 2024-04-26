@@ -1,3 +1,4 @@
+import { useSettingsStore } from '../store/settings'
 import type { Combatant, OverlayDataForHoriz } from '../types'
 import { TEST_NAME_OF_COMBATANTS, TEST_NUMBER_OF_COMBATANTS } from './constants'
 import JSONFakeData from './fakeData.json'
@@ -11,12 +12,19 @@ import {
 
 export function handleFakeDataStream(cb: (data: OverlayDataForHoriz) => void) {
   const fakeData = convertCombatDataIntoHorizData(JSONFakeData)
-  return setInterval(
-    () => {
-      cb(makeFakeData(fakeData))
-    },
-    getRandom(2000, 5000),
-  )
+  const testRandomizeValuesWithInterval =
+    useSettingsStore.getState().testRandomizeValuesWithInterval
+
+  if (testRandomizeValuesWithInterval) {
+    return setInterval(
+      () => {
+        cb(makeFakeData(fakeData))
+      },
+      getRandom(2000, 5000),
+    )
+  }
+
+  return cb(makeFakeData(fakeData))
 }
 
 export function makeFakeData(overlayData: OverlayDataForHoriz) {

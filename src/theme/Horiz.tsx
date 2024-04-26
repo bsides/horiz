@@ -1,4 +1,4 @@
-import { LayoutGroup, motion, useReducedMotion } from 'framer-motion'
+import { LayoutGroup, motion } from 'framer-motion'
 import { useSettingsStore } from '../store/settings'
 import { Combatant } from '../types'
 
@@ -7,7 +7,6 @@ type HorizProps = {
 }
 export function Horiz({ combatant }: HorizProps) {
   const settings = useSettingsStore()
-  const prefersReducedMotion = useReducedMotion()
 
   function getDPS(combatant: Combatant) {
     if (settings.dpsType === 'individual' && settings.dpsShowDecimals) {
@@ -31,7 +30,8 @@ export function Horiz({ combatant }: HorizProps) {
     <LayoutGroup id={combatant.name}>
       <motion.div
         key={combatant.name}
-        layout={prefersReducedMotion != null ? !prefersReducedMotion : true}
+        layout={!settings.prefersReducedMotion}
+        className="combatant"
       >
         <div className="">{combatant.name}</div>
         <div className="">{getDPS(combatant)}</div>

@@ -49,3 +49,8 @@
 .combatant {
   background-color: white;
 }
+
+.combatant:before {
+  transform: skew(-30deg);
+  content: '';
+}

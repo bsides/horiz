@@ -7,6 +7,8 @@ export const DEFAULT_SETTINGS = {
   theme: 'Horiz',
   sortBy: 'dps' as keyof Combatant,
   sortOrder: 'desc' as 'asc' | 'desc',
+  prefersReducedMotion: false,
+  testRandomizeValuesWithInterval: false,
 }
 export const TEST_NUMBER_OF_COMBATANTS = 8
 export const TEST_NAME_OF_COMBATANTS = [
